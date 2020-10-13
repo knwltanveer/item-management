@@ -94,16 +94,9 @@ export default {
         .get("/item")
         .then((response) => {
           this.items = response.data.obj.items;
-          //   this.items.map(function (i) {
-          //     return (i.colorIt = false);
-          //   });
         })
         .catch((error) => {
           console.log(error.response.data);
-          //   this.errors = [];
-          //   if (error.response.data.errors && error.response.data.errors.name) {
-          //     this.errors.push(error.response.data.errors.name[0]);
-          //   }
         });
     },
     addItem() {
@@ -147,7 +140,7 @@ export default {
       } else if (dir == "left") {
         const data = { is_selected: 0 };
         axios
-          .put(`/item/${this.selectedItem.id}`, this.selectedItem)
+          .put(`/item/${this.selectedItem.id}`, data)
           .then((response) => {
             this.items[selectedItemIndex].is_selected = 0;
           })
